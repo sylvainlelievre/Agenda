@@ -1,0 +1,10 @@
+
+.button,
+button[id="edition_supprimer"]{
+	background-color : rgba(255,0,0,0.7);
+}
+
+.button:hover,
+button[id="edition_supprimer"]:hover{
+	background-color : rgba(255,0,0,1);
+}

@@ -1,7 +1,7 @@
-<?php if($this->getData(['core','dataVersion']) > 10092){ 
+<?php if($this->getData(['core','dataVersion']) > 10092){
 	echo '<link rel="stylesheet" href="./site/data/admin.css">';
 }
-else{ 
+else{
 	echo '<link rel="stylesheet" href="./core/layout/admin.css">';
 } ?>
 
@@ -28,14 +28,14 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 			'value' => 'Retour'
 		]); ?>
 	</div>
-<?php 	if( $this->getUser('group') >= $module::$evenement['groupe_mod'] ){?>	
+<?php 	if( $this->getUser('group') >= $module::$evenement['groupe_mod'] ){?>
 	<div class="col2 offset8">
 		<?php echo template::submit('edition_enregistrer',[
 			'ico' => 'check',
 			'name' => 'enregistrer'
 		]); ?>
 	</div>
-<?php 
+<?php
 		$readonly = false;
 		}
 		else{
@@ -45,7 +45,7 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 
 <div class="block">
 	<h4><?php if ($readonly){echo'Lire un évènement'; }else{echo'Lire, modifier, supprimer un évènement';}?></h4>
-	
+
 	<?php if($readonly){echo 'Evénement<br/><div class="block">'.$module::$evenement['texte'].'</div>';}
 	else{
 	?>
@@ -83,7 +83,7 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 			]); ?>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col4">
 			<?php echo template::select('edition_couleur_fond', $module::$couleur,[
@@ -91,7 +91,7 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 				'label' => 'Couleur de fond',
 				'disabled' => $readonly,
 				'selected' => $module::$evenement['couleurfond']
-			]); ?>	
+			]); ?>
 		</div>
 		<div class="col4">
 			<?php echo template::select('edition_couleur_texte', $module::$couleur,[
@@ -99,7 +99,7 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 				'label' => 'Couleur du texte',
 				'disabled' => $readonly,
 				'selected' => $module::$evenement['couleurtexte']
-			]); ?>	
+			]); ?>
 		</div>
 	</div>
 
@@ -110,7 +110,7 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 				'label' => 'Accès en lecture',
 				'disabled' => $readonly,
 				'selected' => $module::$evenement['groupe_lire']
-			]); ?>	
+			]); ?>
 		</div>
 		<div class="col4">
 			<?php echo template::select('edition_groupe_mod', $module::$groupe,[
@@ -118,22 +118,23 @@ else{echo '<script src="./module/agenda/vendor/js/init01.js"></script>';}?>
 				'label' => 'Accès en modification',
 				'disabled' => $readonly,
 				'selected' => $module::$evenement['groupe_mod']
-			]); ?>	
+			]); ?>
 		</div>
 	</div>
 <?php if( $this->getUser('group') >= $module::$evenement['groupe_mod'] ){?>
 	<div class="row">
 		<div class="col2">
-			<?php  echo template::submit('edition_supprimer',[
+			<?php  echo template::button('edition_supprimer',[
 				'ico' => 'cancel',
+				'class' => 'buttonRed',
 				'name' => 'supprimer',
 				'value' => 'Supprimer'
 			]);?>
-		</div>                                                                                         
+		</div>
 	</div>
 <?php } ?>
 </div>
-	
+
 <?php echo template::formClose(); ?>
 <div class="moduleVersion">Version n°
 	<?php echo $module::AGENDA_VERSION; ?>
